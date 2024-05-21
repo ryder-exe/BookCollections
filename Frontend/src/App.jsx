@@ -3,6 +3,7 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Addbook from "./components/Addbook";
 import Showbook from "./components/Showbook";
+import Updatebook from "./components/Updatebook";
 function App() {
 	return (
 		<>
@@ -11,6 +12,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/add" element={<Addbook />} />
+					<Route path="/:id" element={<Updatebook />} exact />
 				</Routes>
 			</BrowserRouter>
 		</>
