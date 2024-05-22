@@ -4,7 +4,7 @@ This is assessment project provide by the Claw Enterprises.
 
 [Watch Demo](https://youtu.be/Tmncayg7FeU)
 
-![UI-community]([https://raw.githubusercontent.com/nz-m/SocialEcho/main/resources/UI-community.png](https://cdn.discordapp.com/attachments/1203235760392773662/1242666617859473489/image.png?ex=664eaaf9&is=664d5979&hm=af7243eb6dc7cc10ee5e786b1a2004a3c4c547b5425456a638d538d64de2e096&))
+![UI-community](mainscreen.png)
 
 ## Table of Contents
 
