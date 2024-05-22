@@ -2,6 +2,9 @@
 
 ![UI-community](mainscreen.png)
 
+#### Demo
+[Tutorial Video](https://youtu.be/ACigQx6PEaQ)
+
 # Table of Contents
 
 
@@ -107,7 +110,6 @@ PORT= "Here give the PORT of the server in which you want to host backend"
 URL= "Here provide the mongoDB database url"
 ```
 
-#### Demo
-https://youtu.be/Tmncayg7FeU
+
 
 
