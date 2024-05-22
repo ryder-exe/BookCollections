@@ -94,7 +94,7 @@ npm install
    npx tailwindcss init -p
    ```
   
-  -After that copy below to ``` tailwind.config.js ``` file inside frontend folder.
+   - After that copy below to ``` tailwind.config.js ``` file inside frontend folder.
  ```bash
   /** @type {import('tailwindcss').Config} */
 export default {
