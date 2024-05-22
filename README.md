@@ -23,7 +23,7 @@ The task involves creating a full-stack web application for managing a collectio
 
 ### Technologies Used:
 
--Front-End: React.js
+-Front-End: React.js, TailwindCSS
 -Back-End: Node.js, Express
 -Database: MongoDB
 -API: RESTful API
@@ -87,14 +87,44 @@ npm install
 
 3. Create a `.env` file `Backend` directories and add the environment variables as shown in the `.env.example` files.
 
-4. Start the Frontend
+4. - Make sure to install the Tailwind in order to access all the style file.
+   ```bash
+   cd frontend
+   npm install -D tailwindcss postcss autoprefixer
+   npx tailwindcss init -p
+   ```
+  
+  -After that copy below to ``` tailwind.config.js ``` file inside frontend folder.
+ ```bash
+  /** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+- Then copy below in the ```index.css``` of the frontend folder.
+```bash
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+```
+You can follow this Tailwind Doc, [Click](https://tailwindcss.com/docs/guides/vite)
+ 
+
+6. Start the Frontend
 
 ```bash
 cd frontend
 npm run dev
 ```
 
-5. Start the Backend
+6. Start the Backend
 
 ```bash
 cd backend
