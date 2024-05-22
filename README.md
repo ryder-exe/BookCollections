@@ -1,93 +1,57 @@
 # Claw Enterprises 
 
-This is assessment project provide by the Claw Enterprises. 
-
-[Watch Demo](https://youtu.be/Tmncayg7FeU)
-
 ![UI-community](mainscreen.png)
 
-## Table of Contents
+# Table of Contents
 
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Technologies](#technologies)
-- [Schema Diagram](#schema-diagram)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [License](#license)
 
 ## Project Overview
 
-The project is a social networking platform built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It incorporates two major features: an automated content moderation system and context-based authentication. These features are accompanied by common functionalities found in social media applications, such as profile creation, post creation and sharing, liking and commenting on posts, and following/unfollowing users.
+### Objective:
+This project serves as a demonstration of full-stack development skills, evaluating proficiency in React.js for the front-end, Node.js with Express for the back-end, MongoDB for database storage, and REST APIs for communication between front-end and back-end.
 
-### Automated Content Moderation
+### Task Description:
+The task involves creating a full-stack web application for managing a collection of books. Users should be able to perform CRUD operations (Create, Read, Update, Delete) on books through the application.
 
-The platform's automated content moderation system utilizes various NLP (Natural Language Processing) APIs. These APIs include:
+### Features:
 
-- Perspective API: Used for filtering spam, profanity, toxicity, harassment etc.
-- TextRazor API: Integrated for content categorization.
-- Hugging Face Interface API: Utilized with BART Large MNLI for content categorization.
+-Book Management Interface: Users can add, view, edit, and delete books. Each book includes fields for title, author, genre, and year published.
+-Integration with Back-End: The front-end communicates with the back-end API to fetch, add, update, and delete book data using HTTP requests.
 
-A Flask application has been developed to provide similar functionality as the Hugging Face Interface API's classifier. The Flask app utilizes the BART Large MNLI model. It operates as a zero-shot classification pipeline with a PyTorch framework.
+### Technologies Used:
 
-The system allows flexibility in choosing different services for API usage or disabling them without affecting overall functionality by using a common interface for interacting with the APIs.
+-Front-End: React.js
+-Back-End: Node.js, Express
+-Database: MongoDB
+-API: RESTful API
 
-When a user posts content, it undergoes a thorough filtering process to ensure compliance with the community guidelines. Additionally, users have the ability to report posts that they find inappropriate, which triggers a manual review process.
+### Front-End Requirements:
 
-### Context-Based Authentication
+Book Management Interface:
+Develop a responsive user interface allowing users to interact with book data.
+Utilize React.js components for modularity and maintainability.
 
-The platform implements context-based authentication to enhance user account security. It takes into consideration user location, IP address, and device information for authentication purposes. Users can conveniently manage their devices directly from the platform. To ensure data privacy, this information is encrypted using the AES algorithm and securely stored in the database.
+### Back-End Requirements:
 
-In case of a suspicious login attempt, users are promptly notified via email and are required to confirm their identity to protect against unauthorized access.
+API Endpoints:
 
-### User Roles
+-Implement a RESTful API with endpoints for CRUD operations on books.
 
-There are three distinct user roles within the system:
+Endpoints include:
 
-1. Admin: The admin role manages the overall system, including moderator management, community management, content moderation, monitoring user activity, and more.
-2. Moderators: Moderators manage communities, manually review reported posts, and perform other moderation-related tasks.
-3. General Users: General users have the ability to make posts, like comments, and perform other actions within the platform.
+-GET /books
+-GET /books/:id
+-POST /books
+-PUT /books/:id
+-DELETE /books/:id
+-Data Validation and Error Handling:
+-Validate incoming data to ensure integrity.
+-Handle errors gracefully and return appropriate HTTP status codes and messages.
 
+### Database Requirements:
 
-
-## Features
-
-- [x] User authentication and authorization (JWT)
-- [x] User profile creation and management
-- [x] Post creation and management
-- [x] Commenting on posts
-- [x] Liking posts and comments
-- [x] Following/unfollowing users
-- [x] Reporting posts
-- [x] Content moderation
-- [x] Context-based authentication
-- [x] Device management
-- [x] Admin dashboard
-- [x] Moderator dashboard
-- [x] Email notifications
-
-
-## Technologies
-
-- React.js
-- Redux
-- Node.js
-- Express.js
-- MongoDB
-- Tailwind CSS
-- JWT Authentication
-- Passport.js
-- Nodemailer
-- Crypto-js
-- Azure Blob Storage
-- Flask
-- Hugging Face Transformers
-
-
-## Schema Diagram
-
-![Schema Diagram](https://raw.githubusercontent.com/nz-m/SocialEcho/main/resources/Schema-Diagram.png)
-
+-Utilize MongoDB to store book data.
+-Define data schema and interact with the database using Mongoose models.
 
 
 ## Getting Started
@@ -104,78 +68,46 @@ Before running the application, make sure you have the following installed:
 1. Clone the repository
 
 ```bash
-git clone https://github.com/nz-m/SocialEcho.git
+git clone https://github.com/ryder-exe/Claw
 ```
-2. Go to the project directory and install dependencies for both the client and server
+2. Go to the project directory and install dependencies for both the Frontend and Backend
 
 ```bash
-cd client
+cd frontend
 npm install
 ```
 
 ```bash
-cd server
+cd backend
 npm install
 ```
 
-3. Create a `.env` file in both the `client` and `server` directories and add the environment variables as shown in the `.env.example` files.
-4. Start the server
+3. Create a `.env` file `Backend` directories and add the environment variables as shown in the `.env.example` files.
+
+4. Start the Frontend
 
 ```bash
-cd server
-npm start
+cd frontend
+npm run dev
 ```
 
-5. Start the client
+5. Start the Backend
 
 ```bash
-cd client
+cd backend
 npm start
 ```
-
-
-### Configuration
-
-Run the `admin_tool.sh` script from the server directory with permissions for executing the script. This script is used for configuring the admin account, creating the initial communities, and other settings.
-```bash
-./admin_tool.sh
-``` 
 
 #### `.env` Variables
 
 For email service of context-based authentication, the following variables are required:
 
 ```bash
-EMAIL=
-PASSWORD=
-EMAIL_SERVICE=
+PORT= "Here give the PORT of the server in which you want to host backend"
+URL= "Here provide the mongoDB database url"
 ```
-
-For content moderation, you need the `PERSPECTIVE_API_KEY` and either the `INTERFACE_API_KEY` or `TEXTRAZOR_API_KEY`. Visit the following links to obtain the API keys:
-
-- [Perspective API](https://developers.perspectiveapi.com/s/docs-get-started)
-- [TextRazor API](https://www.textrazor.com/)
-- [Hugging Face Interface API](https://huggingface.co/facebook/bart-large-mnli)
-
-If you prefer, the Flask server can be run locally as an alternative to using the Hugging Face Interface API or TextRazor API. Refer to the `classifier_server` directory for more information.
-
-
->**Note:** Configuration for context-based authentication and content moderation features are **_not mandatory_** to run the application. However, these features will not be available if the configuration is not provided.
-
-
-## Usage
-
-### Admin
-
-The admin dashboard can be accessed at the `/admin` route. Use the `admin_tool.sh` script to configure the admin account. The admin account can be used to manage moderators, communities, and perform other admin-related tasks. You can also enable/disable or switch API services using the admin dashboard.
-
-### Moderator
-
-Moderators have specific email domain (`@mod.socialecho.com`). When registering with an email from this domain, the user is automatically assigned the moderator role. Moderators can be assigned to different communities from the admin dashboard.
 
 #### Demo
 https://youtu.be/Tmncayg7FeU
 
-## License
 
-This project is licensed under the [MIT License](https://github.com/nz-m/SocialEcho/blob/main/LICENSE).
